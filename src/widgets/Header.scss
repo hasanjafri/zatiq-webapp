@@ -1,0 +1,25 @@
+.header {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    .header-brand, 
+    .header-extra { 
+        width: 200px;
+        padding: 0 15px;
+    }
+    .header-content {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        .header-item {
+            font-size: 14px;
+            cursor: pointer;
+            &:not(:last-child) {
+                margin-right: 10px;
+            }
+            &:not(.selected) {
+                color: lightgrey;
+            }
+        }
+    }
+}
