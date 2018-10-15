@@ -42,10 +42,15 @@ class Header extends Component {
         this.props.onSelectItem && this.props.onSelectItem(selectedItem)
     }
     render() {
+        const { zatiq } = this.props
         const childrenArray = React.Children.toArray(this.props.children)
         return (
-            <div className="header">
-                <span className="header-brand">Zatiq Webb</span>
+            <div className="header" style={zatiq ? {
+                backgroundImage: `url(${require('../assets/background/header.png')})`,
+                backgroundSize: 'cover',
+                overflow: 'hidden'
+            } : {}}>
+                <span className={classnames('header-brand', { 'zatiq': zatiq })}>Zatiq Web</span>
                 <span className="header-content">
                     {childrenArray.map((child, i) => {
                         if (child.type !== Header.Item) {
@@ -66,7 +71,8 @@ class Header extends Component {
 
 Header.propTypes = {
     defaultSelectedItem: PropTypes.string,
-    onSelectItem: PropTypes.func
+    onSelectItem: PropTypes.func,
+    zatiq: PropTypes.bool
 }
 Header.Item.propTypes = {
     id: PropTypes.string,

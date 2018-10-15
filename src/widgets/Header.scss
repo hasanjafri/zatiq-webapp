@@ -6,6 +6,9 @@
     .header-extra { 
         width: 200px;
         padding: 0 15px;
+        &.zatiq {
+            color: white;
+        }
     }
     .header-content {
         flex: 1;
